@@ -2,10 +2,10 @@ name: Triggers
 run-name: Estoy aprendiendo a usar diferentes triggers!
 on:
   push:
-    branch:
+    branches:
       - master
-  pull-request:
-    type: [opened, synchronize, reopened]
+  pull_request:
+    types: [opened, synchronize, reopened]
     paths:
       - '**.js'
   issues:
@@ -13,22 +13,22 @@ on:
       - labeled
   workflow_dispatch:
     inputs:
-      lenguaje_favoritos:
-        descripcion: 'Lenguaje favorito'
+      lenguaje_favorito:
+        description: 'Lenguaje favorito'
         required: true
         type: choice
         options:
         - JavaScript
         - TypeScript
         - Python
-        nombre:
-          description: 'Tu nombre'
-          required: true
-          default: Rafa
-          type: string
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: Rafa
+        type: string
   schedule:
-    - cron: '58 11 * * *'
-jobd:
+    - cron: '44 13 * * *'
+jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
     steps:
