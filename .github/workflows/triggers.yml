@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.js'
   issues:
     types:
       - labeled
@@ -23,7 +27,7 @@ on:
         default: Rafa
         type: string
   schedule:
-    - cron: '15 20 * * *'
+    - cron: '40 20 * * *'
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
