@@ -27,7 +27,7 @@ on:
         default: Rafa
         type: string
   schedule:
-    - cron: '40 20 * * *'
+    - cron: '15 22 * * *'
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
