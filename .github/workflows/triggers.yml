@@ -27,7 +27,7 @@ on:
         default: Rafa
         type: string
   schedule:
-    - cron: '30 13 * * *'
+    - cron: '55 13 * * *'
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
@@ -41,11 +41,14 @@ jobs:
       - name: Definir lenguaje
         run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
 
+      - name: Verificar inputs
+        run: echo "Lenguaje favorito ${{ inputs.lenguaje_favorito }}, Nombre ${{ inputs.nombre }}"
+
       - name: Correr script
         run: node index.js
 
   hola-mundo:
-    if: ${{ github.event_name != 'workflow_dispatch' }}
+    if: ${{ github.event_name != 'workflow_dispatch' || github.event_name == 'schedule' }}
     runs-on: ubuntu_latest
     steps:
       - name: Checkout

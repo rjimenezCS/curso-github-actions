@@ -1,4 +1,5 @@
 name: contexto
+run-name: Uso de contextos en actions
 on: push
 jobs:
   check-main:
